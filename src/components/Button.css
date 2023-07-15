@@ -12,7 +12,7 @@ button {
 
 .buttonContainer {
     --flip-scale: .5;
-    --animation-time: .5s;
+    --animation-time: 1s;
     --background-colorInitial: #FFD36E;
     --background-colorFinal: hsl(251, 80%, 20%);
     --text-colorInitial: black;
@@ -74,7 +74,7 @@ button.buttonAnimationReversed {
 }
 
 button:active.buttonAnimation {
-    background-color: aqua;
+    background-color: var(--background-colorInitial);
 }
 
 button:active.buttonAnimationReversed {

@@ -1,12 +1,3 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -32,7 +23,12 @@ code {
 */
 body {
   line-height: 1.5;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 /*
   5. Improve media defaults
@@ -58,4 +54,29 @@ p, h1, h2, h3, h4, h5, h6 {
 */
 #root, #__next {
   isolation: isolate;
+}
+
+.siteGrid {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(4,1fr);
+  grid-template-areas: 
+  "header header header header"
+  "sidebar mainContent mainContent mainContent"
+  "sidebar mainContent mainContent mainContent";
+}
+
+.header {
+  grid-area: header;
+  height: 120px;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.mainContent {
+  grid-area: mainContent;
 }
