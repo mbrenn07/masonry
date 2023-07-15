@@ -1,3 +1,119 @@
 button {
+    border-radius: 8px;
+    border-style: hidden;
+    min-width: 44px;
+    min-height: 44px;
+    background-color: var(--background-colorInitial);
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    padding-inline: 20px;
+    color: var(--text-colorInitial);
+}
 
+.buttonContainer {
+    --flip-scale: .5;
+    --animation-time: .5s;
+    --background-colorInitial: #FFD36E;
+    --background-colorFinal: hsl(251, 80%, 20%);
+    --text-colorInitial: black;
+    --text-colorFinal:white;
+    width: fit-content;
+    position: relative;
+    isolation: isolate;
+}
+
+.buttonShadow {
+    background-color: black;
+    border-radius: 8px;
+    position: absolute;
+    z-index: -1;
+    top: 4%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    opacity: .8;
+    filter: blur(3px);
+}
+
+.buttonShadow.buttonAnimation {
+    animation: buttonShadowMove var(--animation-time);
+    animation-timing-function: linear;
+}
+
+.buttonShadow.buttonAnimationReversed {
+    animation: buttonShadowMove2 var(--animation-time);
+    animation-timing-function: linear;
+}
+
+@keyframes buttonShadowMove {
+    50% {
+        translate: 0px 25px;
+        opacity: .3;
+        scale: var(--flip-scale);
+    }
+}
+
+@keyframes buttonShadowMove2 {
+    50% {
+        scale: var(--flip-scale);
+        opacity: .3;
+        translate: 0px 25px;
+    }
+}
+
+button.buttonAnimation {
+    animation: buttonFlip var(--animation-time);
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+}
+
+button.buttonAnimationReversed {
+    animation: buttonFlipBackwards var(--animation-time);
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+}
+
+button:active.buttonAnimation {
+    background-color: aqua;
+}
+
+button:active.buttonAnimationReversed {
+    background-color: var(--background-colorInitial);
+    color: var(--text-colorInitial);
+}
+
+button:hover {
+    translate: 0px -1px;
+}
+
+@keyframes buttonFlip {
+    50% {
+        background-color: var(--background-colorInitial);
+        color: var(--text-colorInitial);
+        translate: 0px -5px;
+        scale: var(--flip-scale);
+    }
+    100% {
+        background-color: var(--background-colorFinal);
+        color: var(--text-colorFinal);
+        transform: rotate3d(1,0,0, 720deg);
+    }
+}
+
+@keyframes buttonFlipBackwards {
+    0% {
+        background-color: var(--background-colorFinal);
+        color: var(--text-colorFinal);
+    }
+    50% {
+        background-color: var(--background-colorFinal);
+        color: var(--text-colorFinal);
+        translate: 0px -5px;
+        scale: var(--flip-scale);
+    }
+    100% {
+        background-color: var(--background-colorInitial);
+        color: var(--text-colorInitial);
+        transform: rotate3d(1,0,0, 720deg);
+    }
 }

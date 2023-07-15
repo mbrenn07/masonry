@@ -4,11 +4,15 @@ import resumeToLatex from './latexHandler';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" style={{background: "#2C3333", width: "100vw", height: "100vh"}}>
       <header className="App-header">
       </header>
       <Button onClick={() => resumeToLatex(resume)}>
         Generate LaTeX Resume
+      </Button>
+      <br />
+      <Button onClick={() => console.log("TEST!")}>
+        Test Button Please Ignore
       </Button>
       <form action="https://www.overleaf.com/docs" method="post" target="_blank" id="latexForm">
         <input type="hidden" name="snip_uri" id="latexValue"
